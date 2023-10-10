@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <meta charset="UTF-8">
+    <title>Register Participant</title>
+</head>
+<body>
+    <h1>Register Participant</h1>
+    <form method="POST">
+        <label for="participant_name">Your Name:</label>
+        <input type="text" name="participant_name" required><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" name="phone_number" required pattern="[0-9]{10}"><br>
+
+        <label for="event">Select an Event:</label>
+        <select name="event" required>
+            <option value="" disabled selected>Select an Event</option>
+            {% for event in events %}
+                <option value="{{ event.name }}">{{ event.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
