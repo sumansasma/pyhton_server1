@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <title>Event List</title>
+</head>
+<body>
+    <h1>Event List</h1>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.name }} - {{ event.date }} (<a href="/choose_event">Join</a>)</li>
+        {% endfor %}
+    </ul>
+    <a href="/submit_event">Submit Another Event</a>
+</body>
+</html>
